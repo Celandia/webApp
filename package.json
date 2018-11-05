@@ -1,0 +1,26 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Celandia/webApp.git"
+  },
+  "author": "chengyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Celandia/webApp/issues"
+  },
+  "homepage": "https://github.com/Celandia/webApp#readme",
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.24.0"
+  }
+}
