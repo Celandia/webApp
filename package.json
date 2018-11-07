@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node config/cli.js dist && webpack --config=config/webpack.dev.js --mode=development",
+    "build": "rimraf dist && webpack --config=config/webpack.dev.js --progress",
     "prod": "node config/cli.js dist && webpack --config=config/webpack.dev.js  --mode=production",
     "server": "webpack-dev-server --config=config/webpack.dev.js --hot --inline --open"
   },
@@ -34,6 +35,7 @@
     "fs-extra": "^7.0.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.10.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.16.1",

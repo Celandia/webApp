@@ -1,6 +1,11 @@
 import * as fetchJsonp from 'fetch-jsonp';
 
 export function getJson(url, params, headers) {
+    const host = getGwHost();
+    const regex = /(http|https)/gi;
+    if (!regex.test(url)) {
+        url = host + url;
+    }
     if (params) {
         let paramsArray = [];
         Object.keys(params).forEach(key => {
@@ -22,17 +27,19 @@ export function getJson(url, params, headers) {
     
     return new Promise(function (resolve, reject) {
         if (url.indexOf('\/\/') === 0 && url.indexOf('127.0.0.1') == -1) {
-            fetchJsonp(url).then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    console.log(response.status);
-                    reject({
-                        code: -1,
-                        message: '出错啦'
-                    })
-                }
-            })
+            // jsonp 请求,解决跨域问题
+            fetchJsonp.default(url)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        console.log(response.status);
+                        reject({
+                            code: -1,
+                            message: '出错啦'
+                        })
+                    }
+                })
                 .then((response) => {
                     commonValidation(resolve, reject, response);
                 })
@@ -86,4 +93,11 @@ function commonValidation (resolve, reject, response ) {
     } else {
         resolve(response);
     }
+}
+
+function  getGwHost() {
+    if (process.env.NODE_ENV == 'production') {
+        return '//zgbgw.m.jd.com';
+    }
+    return '//zgbgwb.m.jd.com';
 }

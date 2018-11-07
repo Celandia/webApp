@@ -34,7 +34,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <p>Hello React {this.state.user}</p>
+                <p>Hello {this.state.user}</p>
                 <img
                     src='//img30.360buyimg.com/mobilecms/jfs/t24286/294/748190923/74707/2c2323bc/5b3ed831N1924b882.gif'/>
                 <img src={require('./assets/img/edit.png')}/>
