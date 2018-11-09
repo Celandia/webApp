@@ -5,17 +5,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        main: './src/index.js'
+        main: './src/index.jsx'
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name]_[hash].js' //[name]可以自定义名字，可以默认名字，加上hash
     },
+    devtool: 'source-map',
     resolve: {
-        extensions: ['.js'], // 导入语句没带文件后缀时，webpack会自动带上后缀去尝试访问文件是否存在
+        extensions: ['.js','.jsx'], // 导入语句没带文件后缀时，webpack会自动带上后缀去尝试访问文件是否存在
         alias: { // 配置项通过别名来把原来导入路径映射成一个新的导入路径
             '@assets': path.resolve('src/assets'),
-            '@utils': path.resolve('src/utils')
+            '@utils': path.resolve('src/utils'),
+            '@containers': path.resolve('src/containers')
         }
     },
     devServer: {  // 通过命令行传参
