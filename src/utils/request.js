@@ -88,8 +88,8 @@ export function getJson(url, params, headers) {
 function commonValidation(resolve, reject, response) {
     // 未登录时跳转登录
     if (response && response.code == -1) {
-        // location.href = window.location.origin + '/#/login';
-        console.log('未登录')
+        location.href = window.location.origin + '/login';
+        console.log('未登录',window.location.origin)
     } else {
         resolve(response);
     }
