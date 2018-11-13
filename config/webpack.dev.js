@@ -77,7 +77,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html' //要打包的html模版路径
+            template: './src/index.html', //要打包的html模版路径
+            favicon: path.resolve(__dirname, '../src/assets/img/favicon.png')
         }),
         new ExtractTextPlugin('css/[name]_[hash].css')  // 分离css文件
     ]

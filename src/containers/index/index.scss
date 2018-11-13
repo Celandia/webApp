@@ -3,4 +3,9 @@
 .home-container {
     font-size: 14rem/$rem;
     color: #333;
+    
+    .box {
+        height: 800rem/$rem;
+        background-color: antiquewhite;
+    }
 }

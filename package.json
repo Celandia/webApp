@@ -4,7 +4,7 @@
   "description": "test",
   "main": "index.js",
   "scripts": {
-    "dev": "node config/cli.js dist && webpack --config=config/webpack.dev.js --mode=development",
+    "dev": "node config/cli.js dist && webpack --config=config/webpack.dev.js",
     "build": "rimraf dist && webpack --config=config/webpack.dev.js --progress",
     "prod": "node config/cli.js dist && webpack --config=config/webpack.dev.js  --mode=production",
     "server": "webpack-dev-server --config=config/webpack.dev.js --hot --inline --open"

@@ -13,7 +13,6 @@ export default class Home extends React.Component {
     }
 
     componentWillMount() {
-        console.log(this.props);
         getJson(
             '/api/user.json',
             {
@@ -27,14 +26,23 @@ export default class Home extends React.Component {
             })
         }).catch(err => {
             console.log(err)
-        })
+        });
+        var scrollHandler = this.handleScroll.bind(this);
+        window.addEventListener('scroll', scrollHandler);
     }
 
-    onClinkEvent(){
-        message.info('This is a message',1);
+    handleScroll() {
+        this.setState({
+            needRender: false
+        });
+    }
+
+    onClinkEvent() {
+        message.info('This is a message', 1);
     }
 
     render() {
+        console.log(1)
         return (
             <div className='home-container'>
                 这里是首页
@@ -48,6 +56,7 @@ export default class Home extends React.Component {
                     <a href='/login'>去登录</a>
                 </div>
                 <Link to={'detail: ' + this.state.user}>去详情页</Link>
+                <div className='box'>占位子</div>
             </div>
         )
     }
