@@ -1,6 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 
+
+// 清空文件夹
 const methods = {
     clean: function (pathName) {
         fs.emptyDirSync(path.join(__dirname, '../' + pathName))

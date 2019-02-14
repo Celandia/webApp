@@ -48,7 +48,7 @@ export default class Home extends React.Component {
                 这里是首页
                 <p>Hello {this.state.user}</p>
                 <DatePicker/>
-                <Button onClick={this.onClinkEvent.bind(this)}>Default</Button>
+                <Button type="primary" onClick={this.onClinkEvent.bind(this)}>Default</Button>
                 <img
                     src='//img30.360buyimg.com/mobilecms/jfs/t24286/294/748190923/74707/2c2323bc/5b3ed831N1924b882.gif'/>
                 <img src={require('@assets/img/edit.png')}/>
